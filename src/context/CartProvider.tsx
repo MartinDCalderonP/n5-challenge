@@ -2,14 +2,13 @@ import {
   createContext,
   ReactNode,
   useCallback,
-  useContext,
   useEffect,
   useMemo,
   useState
 } from 'react'
 import { Product } from '../common/interfaces'
 
-interface CartContextValue {
+export interface CartContextValue {
   cartItems: Product[]
   addToCart: (product: Product) => void
   removeFromCart: (productId: number) => void
@@ -17,15 +16,9 @@ interface CartContextValue {
   getTotal: () => number
 }
 
-const CartContext = createContext<CartContextValue | undefined>(undefined)
-
-export const useCart = () => {
-  const context = useContext(CartContext)
-
-  if (!context) throw new Error('useCart must be used within a CartProvider')
-
-  return context
-}
+export const CartContext = createContext<CartContextValue | undefined>(
+  undefined
+)
 
 interface CartProvider {
   children: ReactNode

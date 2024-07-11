@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react'
-import { useCart } from '../../context/CartProvider'
+import useCart from '../../hook/useCart'
 
 interface ProductListItem {
   id: number
@@ -21,6 +21,8 @@ const ProductListItem = ({ id, name, price }: ProductListItem) => {
     addToCart(product)
     setProductAmount(1)
   }
+
+  console.log(useCart().cartItems)
 
   return (
     <li key={id}>
