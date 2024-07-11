@@ -1,5 +1,12 @@
+import styles from './App.module.scss'
+import ProductsList from './components/ProductsList'
+
 const App = () => {
-  return <h1>N5 Challenge</h1>
+  return (
+    <main className={styles.container}>
+      <ProductsList />
+    </main>
+  )
 }
 
 export default App
