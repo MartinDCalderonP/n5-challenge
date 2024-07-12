@@ -1,16 +1,33 @@
+[color-scheme='dark'] {
+  --color-scheme: dark;
+  --primary-font-color: rgba(255, 255, 255, 0.87);
+  --primary-background-color: #242424;
+  --secondary-background-color: #1a1a1a;
+}
+
+[color-scheme='light'] {
+  --color-scheme: light;
+  --primary-font-color: #202020;
+  --primary-background-color: #f5f5f5;
+  --secondary-background-color: #e3e3e3;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  color-scheme: var(--color-scheme);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--primary-font-color);
+  background-color: var(--primary-background-color);
+
+  button {
+    color: var(--primary-font-color);
+    background-color: var(--secondary-background-color);
+  }
 }
 
 a {
@@ -42,7 +59,6 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: all 0.3s ease;
 }
