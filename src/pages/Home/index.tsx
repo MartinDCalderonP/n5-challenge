@@ -11,7 +11,7 @@ const Home = () => {
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen)
 
   return (
-    <main className={styles.mainContainer}>
+    <main className={styles.homeContainer}>
       <CartButton toggleSidebar={toggleSidebar} />
       <ProductsList />
       <Overlay isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
