@@ -1,0 +1,15 @@
+.sidebarItem {
+  border-bottom: 1px solid #444444;
+  cursor: pointer;
+  display: flex;
+  padding: 0.625rem;
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
+
+  &:hover {
+    background-color: #555555;
+  }
+}
