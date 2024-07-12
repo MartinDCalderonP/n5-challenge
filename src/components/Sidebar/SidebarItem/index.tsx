@@ -12,9 +12,10 @@ const SidebarItem = ({ amount, name, price }: SidebarItemProps) => {
 
   return (
     <li className={styles.sidebarItem}>
-      <p>{name}</p>
       <p>
-        {price} * {amount} = {currencyFormatter.format(total)}
+        {name + ' '}
+        {currencyFormatter.format(price)} * {amount} ={' '}
+        {currencyFormatter.format(total)}
       </p>
     </li>
   )
