@@ -1,6 +1,7 @@
 import { ChangeEvent, useState } from 'react'
 import styles from './styles.module.scss'
 import useCart from '../../../hook/useCart'
+import { currencyFormatter } from '../../../utils'
 
 interface ProductListItem {
   id: number
@@ -25,7 +26,7 @@ const ProductListItem = ({ id, name, price }: ProductListItem) => {
 
   return (
     <li key={id} className={styles.productListItem}>
-      {name} - ${price}
+      {name} - {currencyFormatter.format(price)}
       <input
         type='number'
         value={productAmount}
