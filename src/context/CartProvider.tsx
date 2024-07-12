@@ -25,13 +25,11 @@ interface CartProvider {
 }
 
 const CartProvider = ({ children }: CartProvider) => {
-  const [cartItems, setCartItems] = useState<Product[]>([])
+  const savedCartItems = localStorage.getItem('cartItems')
 
-  useEffect(() => {
-    const savedCartItems = localStorage.getItem('cartItems')
-
-    if (savedCartItems) setCartItems(JSON.parse(savedCartItems))
-  }, [])
+  const [cartItems, setCartItems] = useState<Product[]>(
+    savedCartItems ? JSON.parse(savedCartItems) : []
+  )
 
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems))
