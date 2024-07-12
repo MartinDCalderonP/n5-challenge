@@ -23,8 +23,6 @@ const ProductListItem = ({ id, name, price }: ProductListItem) => {
     setProductAmount(1)
   }
 
-  console.log(useCart().cartItems)
-
   return (
     <li key={id} className={styles.productListItem}>
       {name} - ${price}
