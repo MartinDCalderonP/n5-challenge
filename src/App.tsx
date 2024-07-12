@@ -1,22 +1,17 @@
-import { useState } from 'react'
-import styles from './App.module.scss'
-import CartButton from './components/CartButton'
-import ProductsList from './components/ProductsList'
-import Overlay from './components/Overlay'
-import Sidebar from './components/Sidebar'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home/index.tsx'
+import CartProvider from './context/CartProvider.tsx'
 
 const App = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-
-  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen)
-
   return (
-    <main className={styles.mainContainer}>
-      <CartButton toggleSidebar={toggleSidebar} />
-      <ProductsList />
-      <Overlay isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-    </main>
+    <CartProvider>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='*' element={<Home />} />
+        </Routes>
+      </Router>
+    </CartProvider>
   )
 }
 
