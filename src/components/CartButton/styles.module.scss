@@ -1,0 +1,24 @@
+.cartButton {
+  align-items: center;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  position: fixed;
+  right: 1.25rem;
+  top: 1.25rem;
+  width: 80px;
+  font-size: 24px;
+  z-index: 10;
+  border: 1px solid #e45d50;
+
+  .productsCount {
+    background-color: #e45d50;
+    border-radius: 50%;
+    width: 0.9375rem;
+    height: 0.9375rem;
+    font-size: 0.75rem;
+    position: absolute;
+    top: 0;
+    right: 1rem;
+  }
+}
