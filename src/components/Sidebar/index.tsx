@@ -12,7 +12,7 @@ interface SidebarProps {
 const Sidebar = ({ isSidebarOpen, toggleSidebar }: SidebarProps) => {
   const sidebarStyles = `${styles.sidebar} ${isSidebarOpen ? styles.open : ''}`
 
-  const { cartItems, getTotal } = useCart()
+  const { cartItems, clearCart, getTotal } = useCart()
 
   const totalPrice = getTotal()
 
@@ -43,6 +43,9 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }: SidebarProps) => {
           <div className={styles.totalPrice}>
             Precio Total: {currencyFormatter.format(totalPrice)}
           </div>
+          <button className={styles.clearButton} onClick={() => clearCart()}>
+            Vaciar
+          </button>
         </nav>
       )}
     </div>
