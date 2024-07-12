@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react'
 import styles from './styles.module.scss'
-import useCart from '../../hook/useCart'
+import useCart from '../../../hook/useCart'
 
 interface ProductListItem {
   id: number

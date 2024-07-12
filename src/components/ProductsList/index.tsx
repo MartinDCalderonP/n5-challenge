@@ -1,4 +1,4 @@
-import ProductListItem from '../ProductListItem'
+import ProductListItem from './ProductListItem'
 import data from './products.json'
 import styles from './styles.module.scss'
 
