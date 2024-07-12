@@ -1,4 +1,5 @@
 import { ChangeEvent, useState } from 'react'
+import styles from './styles.module.scss'
 import useCart from '../../hook/useCart'
 
 interface ProductListItem {
@@ -25,7 +26,7 @@ const ProductListItem = ({ id, name, price }: ProductListItem) => {
   console.log(useCart().cartItems)
 
   return (
-    <li key={id}>
+    <li key={id} className={styles.productListItem}>
       {name} - ${price}
       <input
         type='number'
