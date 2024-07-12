@@ -1,5 +1,5 @@
 .sidebar {
-  background-color: var(--tertiary-background-color);
+  background-color: var(--primary-background-color);
   height: 100%;
   padding-top: 1.25rem;
   position: fixed;
@@ -48,6 +48,10 @@
     .clearButton {
       background: none;
       border: 1px solid #515151;
+    }
+
+    .buyButton {
+      border: 1px solid #1a1a1a;
     }
   }
 }

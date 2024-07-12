@@ -1,5 +1,5 @@
 import styles from './styles.module.scss'
-import { FaTimes } from 'react-icons/fa'
+import { FaTimes, FaTrash } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import useCart from '../../hook/useCart'
 import SidebarItem from './SidebarItem'
@@ -48,9 +48,14 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }: SidebarProps) => {
           </div>
           <div className={styles.cartButtons}>
             <button className={styles.clearButton} onClick={() => clearCart()}>
-              Vaciar
+              <FaTrash />
             </button>
-            <button onClick={() => navigate('/buy')}>Comprar</button>
+            <button
+              className={styles.buyButton}
+              onClick={() => navigate('/buy')}
+            >
+              Comprar
+            </button>
           </div>
         </nav>
       )}
