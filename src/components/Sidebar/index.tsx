@@ -1,5 +1,6 @@
 import styles from './styles.module.scss'
 import { FaTimes } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 import useCart from '../../hook/useCart'
 import SidebarItem from './SidebarItem'
 import { currencyFormatter } from '../../utils'
@@ -15,6 +16,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }: SidebarProps) => {
   const { cartItems, clearCart, getTotal } = useCart()
 
   const totalPrice = getTotal()
+
+  const navigate = useNavigate()
 
   return (
     <div className={sidebarStyles}>
@@ -43,9 +46,12 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }: SidebarProps) => {
           <div className={styles.totalPrice}>
             Precio Total: {currencyFormatter.format(totalPrice)}
           </div>
-          <button className={styles.clearButton} onClick={() => clearCart()}>
-            Vaciar
-          </button>
+          <div className={styles.cartButtons}>
+            <button className={styles.clearButton} onClick={() => clearCart()}>
+              Vaciar
+            </button>
+            <button onClick={() => navigate('/buy')}>Comprar</button>
+          </div>
         </nav>
       )}
     </div>
