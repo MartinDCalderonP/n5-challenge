@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import styles from './styles.module.scss'
+import DarkModeButton from '../../components/DarkModeButton'
 import CartButton from '../../components/CartButton'
 import ProductsList from '../../components/ProductsList'
 import Overlay from '../../components/Overlay'
@@ -12,6 +13,7 @@ const Home = () => {
 
   return (
     <main className={styles.homeContainer}>
+      <DarkModeButton />
       <CartButton toggleSidebar={toggleSidebar} />
       <ProductsList />
       <Overlay isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
