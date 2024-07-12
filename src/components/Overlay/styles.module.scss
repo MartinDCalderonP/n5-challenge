@@ -1,6 +1,7 @@
 .overlay {
   background-color: rgba(0, 0, 0, 0.7);
   border: unset;
+  border-radius: unset;
   display: none;
   height: 100%;
   left: 0;
@@ -11,5 +12,14 @@
 
   &.open {
     display: block;
+  }
+
+  &:hover {
+    border-color: unset;
+    transform: unset;
+  }
+
+  &:active {
+    transform: unset;
   }
 }
