@@ -14,7 +14,9 @@ const CartButton = ({ toggleSidebar }: CartButtonProps) => {
       <FaShoppingCart />
 
       {cartItems.length > 0 && (
-        <p className={styles.productsCount}>{cartItems.length}</p>
+        <p className={styles.productsCount} data-testid='product-count'>
+          {cartItems.length}
+        </p>
       )}
     </button>
   )
