@@ -13,7 +13,7 @@ const AddProduct = () => {
     .map((field) => (field === 'name' ? 'Nombre' : 'Precio'))
     .join(' y ')} ${
     requiredFields.length > 1
-      ? 'son campos requeridos'
+      ? 'son campos requeridos.'
       : 'es un campo requerido.'
   }`
 
