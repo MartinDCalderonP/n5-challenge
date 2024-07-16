@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 import { render, RenderResult } from '@testing-library/react'
-import TestWrapper from './testWrapper'
+import TestWrapper from './TestWrapper'
 
 const renderWithProviders = (ui: ReactElement, route = '/'): RenderResult => {
   window.history.pushState({}, 'Test Page', route)
