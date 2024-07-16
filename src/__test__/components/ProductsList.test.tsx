@@ -1,7 +1,7 @@
 import ProductsList from '../../components/ProductsList'
 import renderWithProviders from '../../utils/renderWithProviders'
 import { describe, expect, test } from 'vitest'
-import data from '../../components/ProductsList/products.json'
+import data from '../../assets/productsList.json'
 import { currencyFormatter } from '../../utils'
 
 describe('ProductsList', () => {
