@@ -12,7 +12,7 @@ describe('ColorSchemeButton', () => {
     expect(moonIcon).toBeInTheDocument()
   })
 
-  test('must render the sun icon when clicked', () => {
+  test('must render the sun icon when clicked and, after clicking again, the moon icon', () => {
     const { getByRole, getByTestId } = renderWithProviders(
       <ColorSchemeButton />
     )
@@ -25,6 +25,14 @@ describe('ColorSchemeButton', () => {
       const sunIcon = getByTestId('sun')
 
       expect(sunIcon).toBeInTheDocument()
+    })
+
+    fireEvent.click(colorSchemeButton)
+
+    waitFor(() => {
+      const moonIcon = getByTestId('moon')
+
+      expect(moonIcon).toBeInTheDocument
     })
   })
 })
