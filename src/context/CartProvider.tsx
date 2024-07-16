@@ -14,6 +14,7 @@ export interface CartContextValue {
   removeFromCart: (productId: number) => void
   clearCart: () => void
   getTotal: () => number
+  addProduct: (product: Product) => void
 }
 
 export const CartContext = createContext<CartContextValue | undefined>(
@@ -76,15 +77,30 @@ const CartProvider = ({ children }: CartProvider) => {
     )
   }, [cartItems])
 
+  const addProduct = useCallback(
+    (product: Product) => {
+      setCartItems((prevItems) => {
+        const newProduct = {
+          ...product,
+          id: Math.floor(Math.random() * 1000)
+        }
+
+        return [...prevItems, newProduct]
+      })
+    },
+    [setCartItems]
+  )
+
   const value: CartContextValue = useMemo(
     () => ({
       cartItems,
       addToCart,
       removeFromCart,
       clearCart,
-      getTotal
+      getTotal,
+      addProduct
     }),
-    [cartItems, addToCart, removeFromCart, clearCart, getTotal]
+    [cartItems, addToCart, removeFromCart, clearCart, getTotal, addProduct]
   )
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>
