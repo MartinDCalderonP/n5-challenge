@@ -6,7 +6,7 @@ import {
   useMemo,
   useState
 } from 'react'
-import { NewProduct, Product } from '../common/interfaces'
+import { Product } from '../common/interfaces'
 
 export interface CartContextValue {
   cartItems: Product[]
@@ -14,7 +14,6 @@ export interface CartContextValue {
   removeFromCart: (productId: number) => void
   clearCart: () => void
   getTotal: () => number
-  addProduct: (product: NewProduct) => void
 }
 
 export const CartContext = createContext<CartContextValue | undefined>(
@@ -77,31 +76,15 @@ const CartProvider = ({ children }: CartProvider) => {
     )
   }, [cartItems])
 
-  const addProduct = useCallback(
-    (product: NewProduct) => {
-      setCartItems((prevItems) => {
-        const newProduct = {
-          ...product,
-          id: Math.floor(Math.random() * 1000),
-          amount: 0
-        }
-
-        return [...prevItems, newProduct]
-      })
-    },
-    [setCartItems]
-  )
-
   const value: CartContextValue = useMemo(
     () => ({
       cartItems,
       addToCart,
       removeFromCart,
       clearCart,
-      getTotal,
-      addProduct
+      getTotal
     }),
-    [cartItems, addToCart, removeFromCart, clearCart, getTotal, addProduct]
+    [cartItems, addToCart, removeFromCart, clearCart, getTotal]
   )
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>
