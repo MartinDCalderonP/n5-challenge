@@ -4,6 +4,7 @@ import { NewProduct } from '../../common/interfaces'
 import { useNavigate } from 'react-router-dom'
 import useProductsList from '../../hook/useProductsList'
 import { capitalizeFirstLetter } from '../../utils'
+import { debounce } from 'lodash'
 
 const AddProduct = () => {
   const [requiredFields, setRequiredFields] = useState<string[]>([])
@@ -41,7 +42,7 @@ const AddProduct = () => {
     return false
   }
 
-  const handleAddProduct = () => {
+  const handleAddProduct = debounce(() => {
     if (avoidAddingProduct()) return
 
     addProduct(newProduct)
@@ -50,7 +51,7 @@ const AddProduct = () => {
       name: '',
       price: 0
     })
-  }
+  }, 300)
 
   const navigate = useNavigate()
 
