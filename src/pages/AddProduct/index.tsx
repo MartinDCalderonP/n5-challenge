@@ -31,7 +31,7 @@ const AddProduct = () => {
   const avoidAddingProduct = () => {
     if (!newProduct.name || !newProduct.price) {
       const requiredFields = Object.entries(newProduct)
-        .filter(([key, value]) => !value)
+        .filter(([, value]) => !value)
         .map(([key]) => key)
 
       setRequiredFields(requiredFields)
