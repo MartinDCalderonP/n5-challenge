@@ -20,11 +20,11 @@ export const CartContext = createContext<CartContextValue | undefined>(
   undefined
 )
 
-interface CartProvider {
+interface CartProviderProps {
   children: ReactNode
 }
 
-const CartProvider = ({ children }: CartProvider) => {
+const CartProvider = ({ children }: CartProviderProps) => {
   const savedCartItems = localStorage.getItem('cartItems')
 
   const [cartItems, setCartItems] = useState<Product[]>(
