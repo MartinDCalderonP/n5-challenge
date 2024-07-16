@@ -65,7 +65,7 @@ const AddProduct = () => {
         {Object.entries(newProduct).map(([key, value]) => (
           <div className={styles.inputWrapper} key={key}>
             <label htmlFor={`product${key}`}>
-              {key === 'name' ? 'Nombre' : 'Precio'}
+              {key === 'name' ? 'Nombre:' : 'Precio:'}
             </label>
             <input
               type={key === 'price' ? 'number' : 'text'}
