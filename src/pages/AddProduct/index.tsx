@@ -10,8 +10,10 @@ const AddProduct = () => {
 
   const requiredFieldsMessage = `${requiredFields
     .map((field) => (field === 'name' ? 'Nombre' : 'Precio'))
-    .join(' y ')} ${requiredFields.length > 1 ? 'son' : 'es'} requerido${
-    requiredFields.length > 1 ? 's' : ''
+    .join(' y ')} ${
+    requiredFields.length > 1
+      ? 'son campos requeridos'
+      : 'es un campo requerido.'
   }`
 
   const [newProduct, setNewProduct] = useState<NewProduct>({
