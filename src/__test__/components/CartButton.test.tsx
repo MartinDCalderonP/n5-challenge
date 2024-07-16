@@ -1,5 +1,6 @@
-import { fireEvent, render } from '@testing-library/react'
 import CartButton from '../../components/CartButton'
+import renderWithProviders from '../../utils/renderWithProviders'
+import { fireEvent } from '@testing-library/react'
 import { beforeEach, describe, expect, test, vi } from 'vitest'
 
 describe('CartButton', () => {
@@ -17,7 +18,7 @@ describe('CartButton', () => {
 
     const toggleSidebar = vi.fn()
 
-    const { getByRole, getByTestId } = render(
+    const { getByRole, getByTestId } = renderWithProviders(
       <CartButton toggleSidebar={toggleSidebar} />
     )
 
@@ -37,7 +38,9 @@ describe('CartButton', () => {
 
     const toggleSidebar = vi.fn()
 
-    const { getByRole } = render(<CartButton toggleSidebar={toggleSidebar} />)
+    const { getByRole } = renderWithProviders(
+      <CartButton toggleSidebar={toggleSidebar} />
+    )
 
     const cartButton = getByRole('button')
 
@@ -55,7 +58,7 @@ describe('CartButton', () => {
 
     const toggleSidebar = vi.fn()
 
-    const { queryByTestId } = render(
+    const { queryByTestId } = renderWithProviders(
       <CartButton toggleSidebar={toggleSidebar} />
     )
 

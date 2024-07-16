@@ -1,10 +1,11 @@
-import { render, fireEvent, waitFor } from '@testing-library/react'
 import ColorSchemeButton from '../../components/ColorSchemeButton'
+import renderWithProviders from '../../utils/renderWithProviders'
+import { fireEvent, waitFor } from '@testing-library/react'
 import { describe, expect, test } from 'vitest'
 
 describe('ColorSchemeButton', () => {
   test('must initially render the moon icon', () => {
-    const { getByTestId } = render(<ColorSchemeButton />)
+    const { getByTestId } = renderWithProviders(<ColorSchemeButton />)
 
     const moonIcon = getByTestId('moon')
 
@@ -12,7 +13,9 @@ describe('ColorSchemeButton', () => {
   })
 
   test('must render the sun icon when clicked', () => {
-    const { getByRole, getByTestId } = render(<ColorSchemeButton />)
+    const { getByRole, getByTestId } = renderWithProviders(
+      <ColorSchemeButton />
+    )
 
     const colorSchemeButton = getByRole('button')
 

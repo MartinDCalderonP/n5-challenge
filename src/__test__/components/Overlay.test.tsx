@@ -1,12 +1,13 @@
-import { render, fireEvent, waitFor } from '@testing-library/react'
 import Overlay from '../../components/Overlay'
+import renderWithProviders from '../../utils/renderWithProviders'
+import { fireEvent, waitFor } from '@testing-library/react'
 import { describe, expect, test, vi } from 'vitest'
 
 describe('Overlay', () => {
   const mockToggleSidebar = vi.fn()
 
   test('must render the overlay', () => {
-    const { getByRole } = render(
+    const { getByRole } = renderWithProviders(
       <Overlay isSidebarOpen={true} toggleSidebar={mockToggleSidebar} />
     )
 
@@ -16,7 +17,7 @@ describe('Overlay', () => {
   })
 
   test('must call toggleSidebar when clicked and close the sidebar & overlay', () => {
-    const { getByRole } = render(
+    const { getByRole } = renderWithProviders(
       <Overlay isSidebarOpen={true} toggleSidebar={mockToggleSidebar} />
     )
 
