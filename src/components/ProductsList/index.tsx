@@ -10,7 +10,7 @@ const ProductsList = () => {
 
   return (
     <article>
-      <h2>Products List</h2>
+      <h2>Lista de Productos</h2>
       <ul className={styles.productsList}>
         {productsList.map((product) => (
           <ProductListItem

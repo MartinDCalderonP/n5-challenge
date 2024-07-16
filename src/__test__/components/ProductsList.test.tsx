@@ -8,7 +8,9 @@ describe('ProductsList', () => {
   test('renders a list of products', () => {
     const { getAllByText, getByText } = renderWithProviders(<ProductsList />)
 
-    const productsListTitle = getByText('Products List', { selector: 'h2' })
+    const productsListTitle = getByText('Lista de Productos', {
+      selector: 'h2'
+    })
 
     expect(productsListTitle).toBeInTheDocument()
 
