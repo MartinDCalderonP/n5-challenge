@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@testing-library/react'
 import CartButton from '../../components/CartButton'
-import { describe, test, vi, expect, beforeEach } from 'vitest'
+import { beforeEach, describe, expect, test, vi } from 'vitest'
 
 describe('CartButton', () => {
   beforeEach(() => {
