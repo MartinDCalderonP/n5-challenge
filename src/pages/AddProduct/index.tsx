@@ -6,6 +6,12 @@ import useProductsList from '../../hook/useProductsList'
 import { capitalizeFirstLetter } from '../../utils'
 
 const AddProduct = () => {
+  const [requiredFields, setRequiredFields] = useState<string[]>([])
+
+  const requiredFieldsMessage = `${requiredFields
+    .map(capitalizeFirstLetter)
+    .join(' & ')} ${requiredFields.length > 1 ? 'are' : 'is'} required.`
+
   const [newProduct, setNewProduct] = useState<NewProduct>({
     name: '',
     price: 0
@@ -22,7 +28,22 @@ const AddProduct = () => {
     })
   }
 
+  const avoidAddingProduct = () => {
+    if (!newProduct.name || !newProduct.price) {
+      const requiredFields = Object.entries(newProduct)
+        .filter(([key, value]) => !value)
+        .map(([key]) => key)
+
+      setRequiredFields(requiredFields)
+      return true
+    }
+
+    return false
+  }
+
   const handleAddProduct = () => {
+    if (avoidAddingProduct()) return
+
     addProduct(newProduct)
 
     setNewProduct({
@@ -51,6 +72,12 @@ const AddProduct = () => {
             />
           </div>
         ))}
+
+        {requiredFields.length > 0 && (
+          <p className={styles.requiredFieldsMessage}>
+            {requiredFieldsMessage}
+          </p>
+        )}
 
         <button type='button' onClick={handleAddProduct}>
           Add Product

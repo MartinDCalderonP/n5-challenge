@@ -22,4 +22,10 @@
     display: flex;
     gap: 0.5rem;
   }
+
+  .requiredFieldsMessage {
+    color: #ff0000;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
 }
