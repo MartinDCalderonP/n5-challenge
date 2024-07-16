@@ -1,5 +1,5 @@
-import { fireEvent } from '@testing-library/react'
 import ProductListItem from '../../components/ProductsList/ProductListItem'
+import { fireEvent } from '@testing-library/react'
 import renderWithProviders from '../../utils/renderWithProviders'
 import { describe, expect, test, vi } from 'vitest'
 
