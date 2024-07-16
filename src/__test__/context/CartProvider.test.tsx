@@ -25,7 +25,7 @@ describe('CartProvider', () => {
             })
           }
         >
-          Add to Cart
+          Agregar al Carrito
         </button>
         <button
           data-testid='remove-button'

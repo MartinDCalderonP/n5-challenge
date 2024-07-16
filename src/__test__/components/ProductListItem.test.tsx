@@ -23,7 +23,7 @@ describe('ProductListItem', () => {
     expect(productName).toBeInTheDocument()
     expect(productPrice).toBeInTheDocument()
     expect(input).toHaveValue(1)
-    expect(addToCartButton).toHaveTextContent('Add to Cart')
+    expect(addToCartButton).toHaveTextContent('Agregar al Carrito')
   })
 
   test('must change the product amount', async () => {

@@ -33,7 +33,7 @@ const ProductListItem = ({ id, name, price }: ProductListItemProps) => {
         onChange={handleProductAmountChange}
       />
       <button type='button' onClick={handleProductAdd}>
-        Add to Cart
+        Agregar al Carrito
       </button>
     </li>
   )
