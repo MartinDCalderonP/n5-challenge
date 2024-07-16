@@ -21,7 +21,11 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }: SidebarProps) => {
 
   return (
     <div className={sidebarStyles}>
-      <button className={styles.closeButton} onClick={toggleSidebar}>
+      <button
+        className={styles.closeButton}
+        data-testid='close-button'
+        onClick={toggleSidebar}
+      >
         <FaTimes />
       </button>
 
@@ -47,11 +51,16 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }: SidebarProps) => {
             Precio Total: {currencyFormatter.format(totalPrice)}
           </div>
           <div className={styles.cartButtons}>
-            <button className={styles.clearButton} onClick={() => clearCart()}>
+            <button
+              className={styles.clearButton}
+              data-testid='clear-button'
+              onClick={() => clearCart()}
+            >
               <FaTrash />
             </button>
             <button
               className={styles.buyButton}
+              data-testid='buy-button'
               onClick={() => navigate('/buy')}
             >
               Comprar
