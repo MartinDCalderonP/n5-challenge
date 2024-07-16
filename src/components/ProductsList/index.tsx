@@ -22,11 +22,8 @@ const ProductsList = () => {
         ))}
       </ul>
       <div className={styles.addProductButtonWrapper}>
-        <button
-          className={styles.addProductButton}
-          onClick={() => navigate('/add-product')}
-        >
-          Add Product
+        <button onClick={() => navigate('/add-product')}>
+          Añadir Producto
         </button>
       </div>
     </article>
