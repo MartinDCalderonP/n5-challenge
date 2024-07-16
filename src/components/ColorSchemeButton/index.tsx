@@ -20,7 +20,11 @@ const ColorSchemeButton = () => {
 
   return (
     <button className={styles.colorSchemeButton} onClick={toggleColorScheme}>
-      {colorScheme === 'dark' ? <FaSun /> : <FaMoon />}
+      {colorScheme === 'dark' ? (
+        <FaSun data-testid='sun' />
+      ) : (
+        <FaMoon data-testid='moon' />
+      )}
     </button>
   )
 }
