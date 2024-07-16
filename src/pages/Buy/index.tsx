@@ -12,7 +12,7 @@ const Buy = () => {
   return (
     <main className={styles.buyContainer}>
       <ColorSchemeButton />
-      <h1> El precio final de su compra es de: {totalPrice}</h1>
+      <h1>El precio final de su compra es de: {totalPrice}</h1>
       <Link to='/'>¿Desea agregar algún otro producto?</Link>
     </main>
   )
