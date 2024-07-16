@@ -1,4 +1,11 @@
-import { createContext, ReactNode, useState, useEffect } from 'react'
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useMemo,
+  useState,
+  useEffect
+} from 'react'
 import { NewProduct, Product } from '../common/interfaces'
 import baseProductsList from '../assets/productsList.json'
 
@@ -28,20 +35,31 @@ const ProductsListProvider = ({ children }: ProductsListProviderProps) => {
     localStorage.setItem('productsList', JSON.stringify(productsList))
   }, [productsList])
 
-  const addProduct = (newProduct: NewProduct) => {
-    setProductsList((prevProducts) => {
-      const product: Product = {
-        ...newProduct,
-        id: prevProducts.length + 1,
-        amount: 0
-      }
+  const addProduct = useCallback(
+    (newProduct: NewProduct) => {
+      setProductsList((prevProducts) => {
+        const product: Product = {
+          ...newProduct,
+          id: prevProducts.length + 1,
+          amount: 0
+        }
 
-      return [...prevProducts, product]
-    })
-  }
+        return [...prevProducts, product]
+      })
+    },
+    [setProductsList]
+  )
+
+  const value: ProductListContextValue = useMemo(
+    () => ({
+      addProduct,
+      productsList
+    }),
+    [addProduct, productsList]
+  )
 
   return (
-    <ProductsListContext.Provider value={{ productsList, addProduct }}>
+    <ProductsListContext.Provider value={value}>
       {children}
     </ProductsListContext.Provider>
   )
