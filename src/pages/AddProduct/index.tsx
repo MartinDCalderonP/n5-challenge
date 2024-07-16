@@ -49,19 +49,32 @@ const AddProduct = () => {
   const handleAddProduct = debounce(() => {
     if (avoidAddingProduct()) return
 
-    addProduct(newProduct)
+    const result = addProduct(newProduct)
 
-    setNewProduct({
-      name: '',
-      price: 0
-    })
+    if (result === 'Product already exists') {
+      Swal.fire({
+        icon: 'error',
+        title: 'Producto ya existe',
+        text: 'El producto que intentas añadir ya existe.',
+        confirmButtonText: 'Aceptar'
+      })
 
-    Swal.fire({
-      icon: 'success',
-      title: 'Producto añadido',
-      text: 'El producto se ha añadido correctamente.',
-      confirmButtonText: 'Aceptar'
-    })
+      return
+    }
+
+    if (result === 'Success') {
+      setNewProduct({
+        name: '',
+        price: 0
+      })
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Producto añadido',
+        text: 'El producto se ha añadido correctamente.',
+        confirmButtonText: 'Aceptar'
+      })
+    }
   }, 300)
 
   const navigate = useNavigate()

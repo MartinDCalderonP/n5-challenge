@@ -10,7 +10,7 @@ import { NewProduct, Product } from '../common/interfaces'
 import baseProductsList from '../assets/productsList.json'
 
 export interface ProductListContextValue {
-  addProduct: (newProduct: NewProduct) => void
+  addProduct: (newProduct: NewProduct) => string
   productsList: Product[]
 }
 
@@ -37,6 +37,12 @@ const ProductsListProvider = ({ children }: ProductsListProviderProps) => {
 
   const addProduct = useCallback(
     (newProduct: NewProduct) => {
+      const productExists = productsList.find(
+        (product) => product.name === newProduct.name
+      )
+
+      if (productExists) return 'Product already exists'
+
       setProductsList((prevProducts) => {
         const product: Product = {
           ...newProduct,
@@ -46,8 +52,10 @@ const ProductsListProvider = ({ children }: ProductsListProviderProps) => {
 
         return [...prevProducts, product]
       })
+
+      return 'Success'
     },
-    [setProductsList]
+    [productsList, setProductsList]
   )
 
   const value: ProductListContextValue = useMemo(
