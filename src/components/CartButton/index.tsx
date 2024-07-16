@@ -1,6 +1,6 @@
 import styles from './styles.module.scss'
 import { FaShoppingCart } from 'react-icons/fa'
-import useCart from '../../hook/useCart'
+import useCart from '../../hooks/useCart'
 
 interface CartButtonProps {
   toggleSidebar: () => void

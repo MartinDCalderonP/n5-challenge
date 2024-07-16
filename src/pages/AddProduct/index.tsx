@@ -2,7 +2,7 @@ import { ChangeEvent, useState } from 'react'
 import styles from './styles.module.scss'
 import { NewProduct } from '../../common/interfaces'
 import { useNavigate } from 'react-router-dom'
-import useProductsList from '../../hook/useProductsList'
+import useProductsList from '../../hooks/useProductsList'
 import { debounce } from 'lodash'
 import Swal from 'sweetalert2'
 

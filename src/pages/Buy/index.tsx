@@ -1,6 +1,6 @@
 import styles from './styles.module.scss'
 import { Link } from 'react-router-dom'
-import useCart from '../../hook/useCart'
+import useCart from '../../hooks/useCart'
 import { currencyFormatter } from '../../utils'
 import ColorSchemeButton from '../../components/ColorSchemeButton'
 

@@ -43,7 +43,7 @@ describe('ProductListItem', () => {
   })
 
   test('must add the product to the cart', async () => {
-    const mockUseCart = await import('../../hook/useCart')
+    const mockUseCart = await import('../../hooks/useCart')
 
     vi.spyOn(mockUseCart, 'default').mockReturnValue({
       addToCart: vi.fn(),

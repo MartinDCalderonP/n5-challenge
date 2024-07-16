@@ -1,6 +1,6 @@
 import ProductListItem from './ProductListItem'
 import styles from './styles.module.scss'
-import useProductsList from '../../hook/useProductsList'
+import useProductsList from '../../hooks/useProductsList'
 import { useNavigate } from 'react-router-dom'
 
 const ProductsList = () => {

@@ -10,7 +10,7 @@ describe('CartButton', () => {
   })
 
   test('renders CartButton and shows the correct cart item count', async () => {
-    const mockUseCart = await import('../../hook/useCart')
+    const mockUseCart = await import('../../hooks/useCart')
 
     mockUseCart.default = vi.fn().mockReturnValue({
       cartItems: [{ id: 1 }, { id: 2 }]
@@ -30,7 +30,7 @@ describe('CartButton', () => {
   })
 
   test('calls toggleSidebar when the button is clicked', async () => {
-    const mockUseCart = await import('../../hook/useCart')
+    const mockUseCart = await import('../../hooks/useCart')
 
     mockUseCart.default = vi.fn().mockReturnValue({
       cartItems: [{ id: 1 }, { id: 2 }]
@@ -50,7 +50,7 @@ describe('CartButton', () => {
   })
 
   test('does not show the item count when there are no items in the cart', async () => {
-    const mockUseCart = await import('../../hook/useCart')
+    const mockUseCart = await import('../../hooks/useCart')
 
     mockUseCart.default = vi.fn().mockReturnValue({
       cartItems: []

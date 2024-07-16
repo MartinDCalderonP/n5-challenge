@@ -30,7 +30,7 @@ describe('Sidebar', () => {
   })
 
   test('should render the component with a list of products', async () => {
-    const mockUseCart = await import('../../hook/useCart')
+    const mockUseCart = await import('../../hooks/useCart')
 
     vi.spyOn(mockUseCart, 'default').mockReturnValue({
       addToCart: vi.fn(),
@@ -72,7 +72,7 @@ describe('Sidebar', () => {
   })
 
   test('should call the clearCart function when the clear button is clicked', async () => {
-    const mockUseCart = await import('../../hook/useCart')
+    const mockUseCart = await import('../../hooks/useCart')
 
     vi.spyOn(mockUseCart, 'default').mockReturnValue({
       addToCart: vi.fn(),

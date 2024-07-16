@@ -1,7 +1,7 @@
 import styles from './styles.module.scss'
 import { FaTimes, FaTrash } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
-import useCart from '../../hook/useCart'
+import useCart from '../../hooks/useCart'
 import SidebarItem from './SidebarItem'
 import { currencyFormatter } from '../../utils'
 
