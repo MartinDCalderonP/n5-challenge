@@ -4,6 +4,7 @@ import { NewProduct } from '../../common/interfaces'
 import { useNavigate } from 'react-router-dom'
 import useProductsList from '../../hook/useProductsList'
 import { debounce } from 'lodash'
+import Swal from 'sweetalert2'
 
 const AddProduct = () => {
   const [requiredFields, setRequiredFields] = useState<string[]>([])
@@ -53,6 +54,13 @@ const AddProduct = () => {
     setNewProduct({
       name: '',
       price: 0
+    })
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Producto añadido',
+      text: 'El producto se ha añadido correctamente.',
+      confirmButtonText: 'Aceptar'
     })
   }, 300)
 
