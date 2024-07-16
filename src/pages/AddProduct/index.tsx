@@ -3,15 +3,16 @@ import styles from './styles.module.scss'
 import { NewProduct } from '../../common/interfaces'
 import { useNavigate } from 'react-router-dom'
 import useProductsList from '../../hook/useProductsList'
-import { capitalizeFirstLetter } from '../../utils'
 import { debounce } from 'lodash'
 
 const AddProduct = () => {
   const [requiredFields, setRequiredFields] = useState<string[]>([])
 
   const requiredFieldsMessage = `${requiredFields
-    .map(capitalizeFirstLetter)
-    .join(' & ')} ${requiredFields.length > 1 ? 'are' : 'is'} required.`
+    .map((field) => (field === 'name' ? 'Nombre' : 'Precio'))
+    .join(' y ')} ${requiredFields.length > 1 ? 'son' : 'es'} requerido${
+    requiredFields.length > 1 ? 's' : ''
+  }`
 
   const [newProduct, setNewProduct] = useState<NewProduct>({
     name: '',
@@ -57,12 +58,12 @@ const AddProduct = () => {
 
   return (
     <div className={styles.addProductContainer}>
-      <h1>Add Product</h1>
+      <h1>Añadir Producto</h1>
       <form className={styles.addProductForm}>
         {Object.entries(newProduct).map(([key, value]) => (
           <div className={styles.inputWrapper} key={key}>
             <label htmlFor={`product${key}`}>
-              {capitalizeFirstLetter(key)}
+              {key === 'name' ? 'Nombre' : 'Precio'}
             </label>
             <input
               type={key === 'price' ? 'number' : 'text'}
@@ -81,7 +82,7 @@ const AddProduct = () => {
         )}
 
         <button type='button' onClick={handleAddProduct}>
-          Add Product
+          Añadir Producto
         </button>
 
         <button type='button' onClick={() => navigate('/')}>
