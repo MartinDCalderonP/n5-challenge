@@ -6,7 +6,7 @@ import {
   useMemo,
   useState
 } from 'react'
-import { Product } from '../common/interfaces'
+import { NewProduct, Product } from '../common/interfaces'
 
 export interface CartContextValue {
   cartItems: Product[]
@@ -14,7 +14,7 @@ export interface CartContextValue {
   removeFromCart: (productId: number) => void
   clearCart: () => void
   getTotal: () => number
-  addProduct: (product: Product) => void
+  addProduct: (product: NewProduct) => void
 }
 
 export const CartContext = createContext<CartContextValue | undefined>(
@@ -78,11 +78,12 @@ const CartProvider = ({ children }: CartProvider) => {
   }, [cartItems])
 
   const addProduct = useCallback(
-    (product: Product) => {
+    (product: NewProduct) => {
       setCartItems((prevItems) => {
         const newProduct = {
           ...product,
-          id: Math.floor(Math.random() * 1000)
+          id: Math.floor(Math.random() * 1000),
+          amount: 0
         }
 
         return [...prevItems, newProduct]
