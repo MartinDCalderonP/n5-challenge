@@ -6,14 +6,22 @@ describe('ColorSchemeButton', () => {
   test('must initially render the moon icon', () => {
     const { getByTestId } = render(<ColorSchemeButton />)
 
-    expect(getByTestId('moon')).toBeInTheDocument()
+    const moonIcon = getByTestId('moon')
+
+    expect(moonIcon).toBeInTheDocument()
   })
 
   test('must render the sun icon when clicked', () => {
     const { getByRole, getByTestId } = render(<ColorSchemeButton />)
 
-    fireEvent.click(getByRole('button'))
+    const colorSchemeButton = getByRole('button')
 
-    waitFor(() => expect(getByTestId('sun')).toBeInTheDocument())
+    fireEvent.click(colorSchemeButton)
+
+    waitFor(() => {
+      const sunIcon = getByTestId('sun')
+
+      expect(sunIcon).toBeInTheDocument()
+    })
   })
 })
