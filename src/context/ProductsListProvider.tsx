@@ -25,7 +25,7 @@ const ProductsListProvider = ({ children }: ProductsListProviderProps) => {
   )
 
   useEffect(() => {
-    localStorage.setItem('products', JSON.stringify(productsList))
+    localStorage.setItem('productsList', JSON.stringify(productsList))
   }, [productsList])
 
   const addProduct = (newProduct: NewProduct) => {
