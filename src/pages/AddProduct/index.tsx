@@ -1,7 +1,8 @@
 import { ChangeEvent, useState } from 'react'
 import styles from './styles.module.scss'
 import { NewProduct } from '../../common/interfaces'
-import useCart from '../../hook/useCart'
+import { useNavigate } from 'react-router-dom'
+import useProductsList from '../../hook/useProductsList'
 import { capitalizeFirstLetter } from '../../utils'
 
 const AddProduct = () => {
@@ -10,7 +11,7 @@ const AddProduct = () => {
     price: 0
   })
 
-  const { addProduct } = useCart()
+  const { addProduct } = useProductsList()
 
   const handleNewProductChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -30,10 +31,11 @@ const AddProduct = () => {
     })
   }
 
+  const navigate = useNavigate()
+
   return (
     <div className={styles.addProductContainer}>
       <h1>Add Product</h1>
-
       <form className={styles.addProductForm}>
         {Object.entries(newProduct).map(([key, value]) => (
           <div className={styles.inputWrapper} key={key}>
@@ -52,6 +54,10 @@ const AddProduct = () => {
 
         <button type='button' onClick={handleAddProduct}>
           Add Product
+        </button>
+
+        <button type='button' onClick={() => navigate('/')}>
+          Volver
         </button>
       </form>
     </div>
