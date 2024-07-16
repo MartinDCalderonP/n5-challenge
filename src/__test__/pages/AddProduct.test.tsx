@@ -93,11 +93,11 @@ describe('AddProduct', () => {
     })
   })
 
-  test('should add a product to the list', async () => {
+  test('should add a product to the list and show a success message', async () => {
     const mockUseProductsList = await import('../../hooks/useProductsList')
 
     vi.spyOn(mockUseProductsList, 'default').mockReturnValue({
-      addProduct: vi.fn(),
+      addProduct: vi.fn().mockReturnValue('Success'),
       productsList: []
     })
 
