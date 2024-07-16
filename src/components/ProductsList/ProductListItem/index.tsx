@@ -3,13 +3,13 @@ import styles from './styles.module.scss'
 import useCart from '../../../hook/useCart'
 import { currencyFormatter } from '../../../utils'
 
-interface ProductListItem {
+interface ProductListItemProps {
   id: number
   name: string
   price: number
 }
 
-const ProductListItem = ({ id, name, price }: ProductListItem) => {
+const ProductListItem = ({ id, name, price }: ProductListItemProps) => {
   const { addToCart } = useCart()
   const [productAmount, setProductAmount] = useState(1)
 
