@@ -1,5 +1,3 @@
-// Instrucciones para correr el proyecto
-
 # How to run the project
 
 1. Clone the repository
