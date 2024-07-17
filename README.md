@@ -1,3 +1,15 @@
+// Instrucciones para correr el proyecto
+
+# How to run the project
+
+1. Clone the repository
+2. Run `npm install` or `yarn install` or `pnpm install` to install the dependencies
+3. Run `npm run dev` or `yarn dev` or `pnpm dev` to start the development server
+4. It will open a new tab in your default browser with the project running
+
+For the tests, you can run `npm run test` or `yarn test` or `pnpm test`
+Also, for the coverage, you can run `npm run coverage` or `yarn coverage` or `pnpm coverage`
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -20,8 +32,8 @@ export default {
     ecmaVersion: 'latest',
     sourceType: 'module',
     project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
+    tsconfigRootDir: __dirname
+  }
 }
 ```
 
