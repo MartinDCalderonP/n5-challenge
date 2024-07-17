@@ -88,3 +88,9 @@ button:active {
     background-color: #f9f9f9;
   }
 }
+
+.swal2-popup {
+  font-family: inherit;
+  color: var(--primary-font-color);
+  background-color: var(--secondary-background-color);
+}
