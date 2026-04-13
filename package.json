@@ -37,7 +37,7 @@
     "eslint-plugin-react-refresh": "^0.4.7",
     "sass": "^1.77.7",
     "typescript": "^5.2.2",
-    "vite": "^5.3.1",
+    "vite": "^8.0.8",
     "vitest": "link:@testing-library/jest-dom/vitest"
   },
   "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
